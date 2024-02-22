@@ -8,6 +8,7 @@ const inputLogin = joi.object({
 
 const inputUserValid = (req: Request, res: Response, next: NextFunction): Response | void => {
   const inputError = inputLogin.validate(req.body);
+
   if (inputError.error) {
     return res.status(400).json({
       message: '"username" and "password" are required',
