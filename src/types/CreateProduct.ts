@@ -8,3 +8,8 @@ export type CreateProductType = {
   status: string;
   data: Messagetype | Product;
 };
+
+export type GetProductsType = {
+  status: string;
+  data: Messagetype | Product;
+};

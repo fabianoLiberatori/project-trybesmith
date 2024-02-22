@@ -7,6 +7,12 @@ const createProduct = async (req: Request, res: Response): Promise<Response> => 
   return res.status(httpMap[status]).json(data);
 };
 
+const getallProducts = async (_req: Request, res: Response): Promise<Response> => {
+  const { status, data } = await productService.getallProducts();
+  return res.status(httpMap[status]).json(data);
+};
+
 export default {
   createProduct,
+  getallProducts,
 };
