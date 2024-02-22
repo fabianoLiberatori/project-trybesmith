@@ -7,6 +7,13 @@ const getAllUsers = async (_req: Request, res: Response): Promise<Response> => {
   return res.status(httpMap[status]).json(data);
 };
 
+const login = async (req: Request, res: Response): Promise<Response> => {
+  const { username, password } = req.body;
+  const { status, data } = await userService.login(username, password);
+  return res.status(httpMap[status]).json(data);
+};
+
 export default {
   getAllUsers,
+  login,
 };
