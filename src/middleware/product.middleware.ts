@@ -1,7 +1,8 @@
 import UserModel from '../database/models/user.model';
 import { Product } from '../types/Product';
 
-const isHaveInput = (product: Product) => {
+const isHaveInput = (product: Product): {
+  status: string; data: { message: string; }; } | undefined => {
   if (!product.name) {
     return { status: 'BAD_REQUEST',
       data: { message: '"name" is required' },
