@@ -6,6 +6,7 @@ const httpMap: Record<string, number> = {
   NOT_FOUND: 404,
   CONFLICT: 409,
   NO_CONTENT: 204,
+  UNPROCESSABLE_CONTENT: 422,
 };
 
 export default httpMap;

@@ -27,4 +27,20 @@ describe('POST /login', function () {
     expect(httpResponse.status).to.equal(200);
   })
 
+  it('se tentar o login incorretos retorna o message', async function () {
+    const mockUser = UserModel.build(loginMock);
+    sinon.stub(UserModel, 'findOne').resolves(undefined);
+
+    const body: LoginPayload = {
+        username: "Eddieeeeeee",
+        password: "sortudo"
+    }
+
+    const httpResponse = await chai.request(app)
+    .post('/login')
+    .send(body);
+
+    expect(httpResponse.status).to.equal(401);
+  })
+
 });
